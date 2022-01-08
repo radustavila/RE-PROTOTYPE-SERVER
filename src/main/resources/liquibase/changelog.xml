@@ -1,0 +1,36 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="liquibase/20-12-10_create_users_table.xml"/>
+    <include file="liquibase/20-12-10_create_events_table.xml"/>
+
+    <include file="liquibase/20-12-17_update_event_date.xml"/>
+
+    <include file="liquibase/20-12-18_update_event_date_not_unique.xml"/>
+
+    <include file="liquibase/20-12-28_update_event_add_pictures.xml"/>
+
+    <include file="liquibase/20-12-29_update_event_add_details_location.xml"/>
+
+    <include file="liquibase/21-01-14_update_user_remove_token.xml"/>
+
+    <include file="liquibase/21-01-25_create_status_table.xml"/>
+    <include file="liquibase/21-01-25_update_status_add_user.xml"/>
+
+    <include file="liquibase/21-02-08_create_images_table.xml"/>
+
+    <include file="liquibase/21-02-18_remove_images_table.xml"/>
+
+    <include file="liquibase/21-04-23_update_user_drop_not_null_username_and_password.xml"/>
+    <include file="liquibase/21-04-23_update_user_remove_username_add_access_token.xml"/>
+    <include file="liquibase/21-04-23_update_user_drop_not_null_password.xml"/>
+
+    <include file="liquibase/21-04-28_update_event_add_instagram_id.xml"/>
+
+    <include file="liquibase/21-04-29_create_settings_instagram_table.xml"/>
+    <include file="liquibase/21-04-29_update_settings_instagram_add_auto_sync.xml"/>
+
+</databaseChangeLog>
