@@ -8,7 +8,8 @@ import java.util.List;
 
 @Entity
 @Data
-@Table(name = "users", schema = "public", catalog = "my-events-tracker")
+@Table(name = "users", schema = "public")
+@ToString
 public class UsersEntity {
 
     @Id

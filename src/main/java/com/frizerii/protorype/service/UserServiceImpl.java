@@ -54,6 +54,8 @@ public class UserServiceImpl implements UserService {
 
     private UsersEntity validateUserLogin(UserLoginDto user) throws UserException {
         UsersEntity usersEntity = userRepository.findByEmail(user.getEmail());
+        System.out.println(user);
+        System.out.println(usersEntity);
         if (usersEntity == null) {
             throw new UserException("Invalid credentials!");
         }

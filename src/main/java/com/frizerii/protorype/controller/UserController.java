@@ -29,6 +29,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody UserLoginDto user) {
         try {
+            System.out.println(user);
             return ResponseEntity.ok().body(userService.loginUser(user));
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ex.getMessage());
