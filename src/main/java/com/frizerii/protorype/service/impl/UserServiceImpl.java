@@ -1,4 +1,4 @@
-package com.frizerii.protorype.service;
+package com.frizerii.protorype.service.impl;
 
 import com.frizerii.protorype.dto.TokenDto;
 import com.frizerii.protorype.dto.UserLoginDto;
@@ -6,6 +6,7 @@ import com.frizerii.protorype.entity.UsersEntity;
 import com.frizerii.protorype.helper.exception.UserException;
 import com.frizerii.protorype.helper.jwt.JwtTokenProvider;
 import com.frizerii.protorype.repository.UserRepository;
+import com.frizerii.protorype.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
