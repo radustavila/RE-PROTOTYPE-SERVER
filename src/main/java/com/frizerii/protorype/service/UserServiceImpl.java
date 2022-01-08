@@ -8,14 +8,16 @@ import com.frizerii.protorype.helper.jwt.JwtTokenProvider;
 import com.frizerii.protorype.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
+//@EnableJpaRepositories("com.frizerii.protorype.repository")
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
+    @Autowired
     private final UserRepository userRepository;
     private final JwtTokenProvider jwtTokenProvider;
 
