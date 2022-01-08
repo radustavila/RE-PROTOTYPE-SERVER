@@ -27,16 +27,4 @@ public class UsersEntity {
     @Column(name = "accessTokenInstagram")
     private String accessTokenInstagram;
 
-//    @OneToMany(mappedBy = "userFk", cascade = CascadeType.ALL,
-//            orphanRemoval = true, fetch = FetchType.LAZY)
-//    @ToString.Exclude
-//    private List<EventEntity> events;
-//
-//    @OneToOne(mappedBy = "userFk", cascade = CascadeType.ALL,
-//            orphanRemoval = true, fetch = FetchType.LAZY)
-//    private SettingsInstagramEntity settingsInstagram;
-//
-//    @OneToOne(mappedBy = "userFk", cascade = CascadeType.ALL,
-//            orphanRemoval = true, fetch = FetchType.LAZY)
-//    private StatusEntity status;
 }
