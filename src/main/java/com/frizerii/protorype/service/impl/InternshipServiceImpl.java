@@ -9,7 +9,10 @@ import com.frizerii.protorype.service.InternshipService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
@@ -23,11 +26,35 @@ public class InternshipServiceImpl implements InternshipService {
         Internship internship = new Internship(internshipDto);
         internship.setOrganizer(userRepository.getById(internshipDto.getOrganizerId()));
         return internshipRepository.save(internship);
+
+    }
+
+    static class SortUtilDesc implements Comparator<Internship> {
+
+        public int compare(Internship a, Internship b) {
+            return (int) (b.getSalary() - a.getSalary());
+        }
     }
 
     @Override
-    public List<Internship> getAllInternships() {
-        return internshipRepository.findAll();
+    public List<Internship> getAllInternships(String sorted, String ordered, Double start, Double stop) {
+
+        List<Internship> internships = internshipRepository.findAll();
+        if (sorted.equals("True")) {
+            internships.sort(new SortUtilDesc());
+            if (ordered.equals("Desc")) {
+                Collections.reverse(internships);
+            }
+        }
+
+        if (start != null) {
+            internships = internships.stream().filter(i -> i.getSalary() >= start).collect(Collectors.toList());
+        }
+        if (stop != null) {
+            internships = internships.stream().filter(i -> i.getSalary() <= stop).collect(Collectors.toList());
+        }
+
+        return internships;
     }
 
     @Override

@@ -35,9 +35,13 @@ public class InternshipController {
     }
 
     @GetMapping("/internships")
-    public List<InternshipDto> getInternships() {
-        return internshipService.getAllInternships()
+    public List<InternshipDto> getInternships(@RequestParam(name = "sorted", defaultValue = "False",required = false) String sorted,
+                                              @RequestParam(name = "ordered", defaultValue = "Asc",required = false) String ordered,
+                                              @RequestParam(name = "start",required = false) Double start,
+                                              @RequestParam(name = "stop",required = false) Double stop) {
+        return internshipService.getAllInternships(sorted, ordered, start, stop)
                 .stream().map(InternshipDto::new).collect(Collectors.toList());
     }
+
 
 }
