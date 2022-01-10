@@ -29,6 +29,11 @@ public class CVController {
         return cvService.saveCV(cv, userId);
     }
 
+    @GetMapping("/users/{userId}/CVs")
+    public List<CV> getUserCvs(@PathVariable Long userId) {
+        return cvService.getUserCvs(userId);
+    }
+
     @GetMapping("/CVs/{cvId}/reviews")
     public List<ReviewDto> getAllReviews(@PathVariable Long cvId) {
 

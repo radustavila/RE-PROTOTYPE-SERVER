@@ -48,6 +48,11 @@ public class CVServiceImpl implements CVService {
     }
 
     @Override
+    public List<CV> getUserCvs(Long userId) {
+        return getAllCVs().stream().filter(c -> c.getUser().getId().equals(userId)).collect(Collectors.toList());
+    }
+
+    @Override
     public List<Review> getAllReviews(Long cvId) {
         return reviewRepository.findAllByCv_Id(cvId);
     }

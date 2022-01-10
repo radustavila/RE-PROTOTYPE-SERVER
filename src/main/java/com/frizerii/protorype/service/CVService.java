@@ -12,5 +12,6 @@ public interface CVService {
     CV saveCV(CV cv, Long userId);
     Review saveReview(Long userId, Long cvId, Review review);
     List<CV> getAllCVs();
+    List<CV> getUserCvs(Long userId);
     List<Review> getAllReviews(Long cvId);
 }
