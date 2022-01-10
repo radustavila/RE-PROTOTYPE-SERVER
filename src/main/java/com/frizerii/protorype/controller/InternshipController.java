@@ -2,6 +2,8 @@ package com.frizerii.protorype.controller;
 
 import com.frizerii.protorype.dto.InternshipDto;
 import com.frizerii.protorype.entity.Internship;
+import com.frizerii.protorype.entity.UsersEntity;
+import com.frizerii.protorype.helper.jwt.JwtTokenProvider;
 import com.frizerii.protorype.service.InternshipService;
 import com.frizerii.protorype.service.UserService;
 import lombok.AllArgsConstructor;
@@ -16,6 +18,8 @@ import java.util.stream.Collectors;
 public class InternshipController {
 
     private final InternshipService internshipService;
+    private final UserService userService;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @GetMapping("/test")
     public String test() {
@@ -43,5 +47,12 @@ public class InternshipController {
                 .stream().map(InternshipDto::new).collect(Collectors.toList());
     }
 
+
+    @GetMapping("/current-user")
+    public UsersEntity getUserId(@RequestHeader("Authorization") String auth) {
+        System.out.println(auth);
+        auth = auth.replace("Bearer ","");
+        return userService.getById(jwtTokenProvider.getDecodedUserId(auth));
+    }
 
 }

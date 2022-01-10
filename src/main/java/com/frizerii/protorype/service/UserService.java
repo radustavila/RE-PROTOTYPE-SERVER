@@ -10,6 +10,8 @@ public interface UserService {
 
     UsersEntity registerUser(UsersEntity userEntity) throws UserException;
 
+    UsersEntity getById(Long userId);
+
     TokenDto loginUser(UserLoginDto userLoginDto) throws UserException;
 
 }

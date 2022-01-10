@@ -36,6 +36,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UsersEntity getById(Long userId) {
+        return userRepository.getById(userId);
+    }
+
+    @Override
     public TokenDto loginUser(UserLoginDto userLogin) throws UserException {
 
         UsersEntity user = validateUserLogin(userLogin);
